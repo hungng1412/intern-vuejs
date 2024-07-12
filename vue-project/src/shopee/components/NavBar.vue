@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <header>
     <div class="navbar">
       <div class="logo">
@@ -18,6 +18,38 @@
       </div>
     </div>
   </header>
+</template>
+ -->
+ <template>
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
+    :ellipsis="false"
+    @select="handleSelect"
+  >
+    <el-menu-item index="0">
+      <img
+        style="width: 150px"
+        src="../img/logo.png"
+        alt="Element logo"
+      />
+    </el-menu-item>
+    <div class="flex-grow" />
+    <el-menu-item index="1">Shop</el-menu-item>
+    <el-sub-menu index="2">
+      <template #title>Category</template>
+      <el-menu-item index="2-1">Shoes</el-menu-item>
+      <el-menu-item index="2-2">Hat</el-menu-item>
+      <el-menu-item index="2-3">Jewelry</el-menu-item>
+      <el-sub-menu index="2-4">
+        <template #title>Clothes</template>
+        <el-menu-item index="2-4-1">T-Shirt</el-menu-item>
+        <el-menu-item index="2-4-2">Jean</el-menu-item>
+        <el-menu-item index="2-4-3">Underware</el-menu-item>
+      </el-sub-menu>
+    </el-sub-menu>
+  </el-menu>
 </template>
 <script setup>
 import { reactive, ref } from "vue";
@@ -48,6 +80,9 @@ const searchInput = ref("");
 </script>
 
 <style scoped>
+.flex-grow {
+  flex-grow: 1;
+}
 body,
 html {
   margin: 0;
